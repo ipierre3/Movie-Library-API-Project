@@ -45,7 +45,7 @@ public class MovieController {
 
     @PutMapping("/movies/{id}")
     public Movie updateMovieById(@RequestBody Movie movieData, @PathVariable Integer id) {
-        return movieService.updateMovieById(movieData, id);
+        return movieService.updateMovieById(id, movieData);
     }
 
 }

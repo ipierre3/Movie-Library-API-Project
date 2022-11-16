@@ -38,15 +38,15 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-    public Movie updateMovieById(Movie updatedData, Integer id) {
+
+    public Movie updateMovieById(Integer id, Movie movieData){
         Movie movieToUpdate = movieRepository.findById(id).orElse(null);
+        movieToUpdate.setName(movieData.getName());
+        movieToUpdate.setGenre(movieData.getGenre());
+        movieToUpdate.setDirector(movieData.getDirector());
+        movieRepository.save(movieToUpdate);
 
-        if (movieToUpdate != null) {
-            updatedData.setId(id);
-            return movieRepository.save(updatedData);
-        }
-
-        return null;
+        return movieToUpdate;
     }
 
 }
