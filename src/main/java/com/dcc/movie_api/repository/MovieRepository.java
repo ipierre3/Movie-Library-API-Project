@@ -8,4 +8,5 @@ import java.util.List;
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     public List<Movie> GetByGenre(String genre);
+    public List<Movie> GetByName(String name);
 }

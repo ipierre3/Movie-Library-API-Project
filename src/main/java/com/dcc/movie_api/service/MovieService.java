@@ -29,4 +29,7 @@ public class MovieService {
         return movieRepository.GetByGenre(genre);
     }
 
+    public List<Movie> getByName(String name) {
+        return movieRepository.GetByName(name);
+    }
 }
