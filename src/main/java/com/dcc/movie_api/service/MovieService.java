@@ -24,4 +24,9 @@ public class MovieService {
     public Movie getById(Integer id) {
         return movieRepository.findById(id).orElse(null);
     }
+
+    public List<Movie> getByGenre(String genre) {
+        return movieRepository.GetByGenre(genre);
+    }
+
 }
