@@ -28,14 +28,24 @@ public class MovieController {
         return movieService.getById(id);
     }
 
-    @GetMapping("/GetByGenre/{genre}")
+    @GetMapping("/movies/GetByGenre/{genre}")
     public List<Movie> GetMovieByGenre(@PathVariable String genre){
         return movieService.getByGenre(genre);
     }
 
-    @GetMapping("/GetByName/{name}")
+    @GetMapping("/movies/GetByName/{name}")
     public List<Movie> GetMovieByName(@PathVariable String name){
         return movieService.getByName(name);
+    }
+
+    @DeleteMapping("/DeleteById/{id}")
+    public void deleteMovieById(@PathVariable Integer id){
+        movieService.deleteMovieById(id);
+    }
+
+    @PutMapping("/movies/{id}")
+    public Movie updateMovieById(@RequestBody Movie movieData, @PathVariable Integer id) {
+        return movieService.updateMovieById(movieData, id);
     }
 
 }

@@ -32,4 +32,21 @@ public class MovieService {
     public List<Movie> getByName(String name) {
         return movieRepository.GetByName(name);
     }
+
+
+    public void deleteMovieById(Integer id) {
+        movieRepository.deleteById(id);
+    }
+
+    public Movie updateMovieById(Movie newData, Integer id) {
+        Movie movieToUpdate = movieRepository.findById(id).orElse(null);
+
+        if (movieToUpdate != null) {
+            newData.setId(id);
+            return movieRepository.save(newData);
+        }
+
+        return null;
+    }
+
 }
